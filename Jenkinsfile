@@ -15,7 +15,7 @@ pipeline {
         def appVersion = '' //variable declaration
        // nexusUrl = '98.82.200.204:8081'
         region = "us-east-1"
-        account_id = "696919879899"
+        account_id = "665910433890"
     }
     stages {
         stage('read the version'){
@@ -52,12 +52,12 @@ pipeline {
         stage('Docker build'){
              steps{
                  sh """
-                    echo "Chintu@123" | docker login --username joindevops006 --password-stdin
+                    echo "Bunny@123" | docker login --username prashanth3010 --password-prashanth3010 stdin
 
 
-                     docker build -t  joindevops006/joindevops:${appVersion} .
+                     docker build -t  prashanth3010/backend:${appVersion} .
 
-                     docker push  joindevops006/joindevops:${appVersion}
+                     docker push  prashanth3010/backend:${appVersion}
                  """
             }
         }
@@ -74,14 +74,14 @@ pipeline {
     //    }
         stage('Update Deployment File') {
   environment {
-      GIT_REPO_NAME = "backend-argocd"
-      GIT_USER_NAME = "sandeepkumaruttera"
+      GIT_REPO_NAME = "ArgoCD-Practice"
+      GIT_USER_NAME = "prashanthbavikadi"
   }
   steps {
     withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
       sh """
-        git config user.email "sandeepkumaruttera@gmail.com"
-        git config user.name "sandeep kumar"
+        git config user.email "bavikadiprashanthias@gmail.com"
+        git config user.name "prashanth bavikadi"
 
         sed -i "s/imageVersion:.*/imageVersion: ${appVersion}/" helm/values.yaml
         
