@@ -52,8 +52,8 @@ pipeline {
         stage('Docker build'){
              steps{
                  sh """
-                    echo "Bunny@123" | docker login --username prashanth3010 --password-prashanth3010 stdin
-
+                
+                    echo "Bunny@3010" | docker login --username prashanth3010 --password-stdin
 
                      docker build -t  prashanth3010/backend:${appVersion} .
 
