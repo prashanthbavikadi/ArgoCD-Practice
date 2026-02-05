@@ -26,7 +26,7 @@ spec:
       containers:
       - name: backend
         imagePullPolicy: Always
-        image: prashanth3010/backend:{{ .Values.deployment.imageVersion }}
+        image: prashanth3010/backend:2.5.0-9
         envFrom:
         - configMapRef:
             name: backend
